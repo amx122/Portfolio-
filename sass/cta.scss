@@ -1,0 +1,65 @@
+.resume{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @media only screen and (max-width:$bp-large) {position: relative; width: auto; min-height: 100vh; padding-top: 10rem; padding-bottom: 20rem;}
+    @media only screen and (max-width:$bp-medium) {padding-top: 0;}
+}
+
+.code{
+    &-links{
+        writing-mode: vertical-lr;
+        margin-right: 3rem;
+        padding-top: 8rem;
+        height: max-content;
+    }
+    &-title{
+        display: none;
+        @media only screen and (max-width:$bp-large) {display: block;}
+    }
+    &-wrapper{
+        flex: 1;
+        padding: 3rem;
+        padding-right: 2rem;
+        padding-left: 1rem;
+        margin-top: 5%;
+        @media only screen and (max-width:$bp-medium) {padding-right: 2rem;}
+        @media only screen and (max-width:$bp-small) {width: max-content; overflow: auto; white-space: nowrap; margin-right: 3rem;}
+    }
+    &-line{
+        padding-left: 4%;
+        margin-left: 2%;
+        font-family: $font-codes;
+        font-size: 1.5rem;
+        &-0{ font-size: 2.5rem;}
+        @media only screen and (max-width:$bp-medium) {margin-left: 1%;}
+        &:hover{
+            background-color: rgba(41, 41, 41, 0.637);
+        }
+    }
+    &-animation{
+        line-height: 0;
+        font-size: 2.2rem;
+        font-weight: bolder;
+        animation: type 1s infinite;
+    }
+    &-dot{color: rgb(95, 94, 94);}
+    &-grey{color: rgb(151, 151, 151);}
+    &-red{color: red;}
+    &-orange{color: orange;}
+    &-blue{color: blueviolet;}
+    &-yellow{color: yellow;}
+    &-green{color: green;}
+    &-greenyellow{color: yellowgreen;}
+}
+
+@keyframes type{
+    0% {opacity:0;}
+    50% {opacity:1;}
+    100% {opacity:0;}
+}

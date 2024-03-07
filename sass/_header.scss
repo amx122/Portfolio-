@@ -1,0 +1,78 @@
+.header{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    @media only screen and (max-width:$bp-large) {position: relative; width: auto; min-height: 100vh; padding-bottom: 6rem;}
+    &-text{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-left: 15%;
+        h1{line-height: 130%; font-size: 9rem;}
+        @media only screen and (max-width:$bp-medium) {margin-left: 7%;}
+        @media only screen and (max-width:$bp-small) {
+            h1{font-size: 7rem; line-height: 150%;}
+        }
+    }
+    &-letter{
+        &-1{
+            transition: all .1s;
+            &:hover{
+                color: $color-primary;
+                line-height: 0;
+                @media only screen and (max-width:$bp-small) {font-size: 6.5rem;}
+            }
+        }
+        &-2{
+            transition: all .1s;
+            &:hover{
+                color: $color-secondary;
+                line-height: 0;
+                @media only screen and (max-width:$bp-small) {font-size: 6.5rem;}
+            }
+        }
+        &-3{
+            color: $color-primary;
+            transition: all .1s;
+            &:hover{
+                color: $color-secondary;
+                line-height: 0;}
+        }
+        &-4{
+            transition: all .1s;
+            color: $color-secondary;
+            &:hover{
+                color: $color-primary;
+                line-height: 0;
+            }
+        }
+    }
+    &-links{
+        margin-top: 3rem;
+        align-self: start;
+        margin-left: 15%;
+        @media only screen and (max-width:$bp-medium) {margin-left: 7%;}
+        @media only screen and (max-width:$bp-small) {span{display: none;}}
+    }
+}
+
+#output{color: $color-secondary; font-size:3rem;}
+
+@keyframes letter-up{ 
+    0%{
+        font-size: 10rem;
+    }
+    40%{
+        font-size: 9.5rem;
+        color: $color-secondary;
+    }
+    100%{
+        font-size: 10rem;
+    }
+}
+

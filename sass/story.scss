@@ -1,0 +1,180 @@
+.works{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50%;
+    height: 50%;
+    display: flex;
+    justify-content: space-between;
+    @media only screen and (max-width:$bp-large) {position: relative; width: auto; min-height: fit-content; padding-top: 10rem; padding-bottom: 10rem;}
+    @media only screen and (max-width:$bp-medium) {padding-top: 5rem;}
+    &-links{
+        writing-mode: vertical-lr;
+        margin: 4rem;
+        padding-top: 8rem;
+        margin-top: auto;
+        margin-bottom: auto;
+        height: max-content;
+    }
+}
+
+.works-box{
+  flex: 1;
+  padding:3rem;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.works-wrapper{
+  position: relative;
+  width: 100%;
+  // margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  height: 67vh;
+  overflow-y: scroll;
+  &::-webkit-scrollbar {width: 3px;}
+  &::-webkit-scrollbar-track { background: transparent;border-radius: 1rem;}
+  &::-webkit-scrollbar-thumb {background: transparent; border-radius: 1rem;}
+  &:hover{
+      &::-webkit-scrollbar-thumb {background: gainsboro;}
+  }
+}
+
+$letters: 7;
+$teal: #16e590;
+$cubic-slow: cubic-bezier(0.7, 0.01, 0.37, 1);
+
+.roll-up {
+  overflow: hidden;
+  position: relative;
+  > span {
+    font-size: 2.5rem;
+    display: inline-block;
+    position: relative;
+    @for $i from 1 through $letters {
+      &:nth-child(#{$i}) {
+        transition-delay: #{$i *.03}s;
+      }
+    }
+    > span {
+      display: inline-block;
+      transition: .6s $cubic-slow;
+      transition-delay: inherit;
+      &:nth-child(1) {
+        position: relative;
+      }
+      &:nth-child(2) {
+        position: absolute;
+        transform: translateY(100%);
+        left: 0;
+        color: $color-primary-light;
+      }
+    }
+  }
+}
+.text-reveal {
+  position: relative;
+  overflow: hidden;
+  span {
+    display: block;
+    transition: $cubic-slow 0.6s;
+  }
+  > span {
+    &:nth-child(2) {
+      position: absolute;
+      top: 0;
+      left: 0;
+      color: $color-secondary-light;
+      > span {
+        overflow: hidden;
+        transform: translateX(-100%);
+        @for $i from 1 through $letters {
+          &:nth-child(#{$i}) {
+            transition-delay: #{$i *.1}s;
+          }
+        }
+        > span {
+          transform: translateX(100%);
+          transition-delay: inherit;
+        }
+      }
+    }
+  }
+}
+.card {
+  text-decoration: none;
+  color: inherit;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  max-width: 28%;
+  width: 100%;
+  height: 19rem;
+  padding: 2rem;
+  box-shadow: 0 2rem 3rem 1rem rgba(0, 0, 0, 0.37), 0 6px 30px 5px rgba(0,0,0,0.12), 0 8px 10px -5px rgba(0,0,0,0.3);
+  background-size: cover;
+  background-position: top;
+  cursor: pointer;
+  &-1,
+  &-2{
+    margin: 8rem 8rem 0 0rem;
+    @media only screen and (max-width:$bp-medium) {margin: 5rem 4.5rem 0 0rem;}
+  }
+  &-3,
+  &-4{
+    margin: 8rem 0 0 8rem;
+    @media only screen and (max-width:$bp-medium) {margin: 5rem 4rem 0 0rem;}
+  }
+  &-single-left{
+    margin-right: auto;
+    margin-left: 18rem;
+    @media only screen and (max-width:$bp-medium) {margin: 5rem 4rem 0 0rem;}
+  }
+  @media only screen and (max-width:$bp-medium) {max-width: 60%; height: 10rem;}
+  @media only screen and (max-width:$bp-small) {max-width: 100%; height: 10rem;}
+  &:before {
+    content: '';
+    display: block;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.75) 100%);
+  }
+  .card__content {
+    z-index: 1;
+    .card__content--description {
+      position: absolute;
+      bottom: 2rem;
+      right: 0;
+      margin-right: -8rem;
+      text-align: left;
+      max-width: 17.5rem;
+    }
+  }
+  &:hover {
+    box-shadow: 0 0rem 5rem rgba(255, 255, 255, 0.219);
+    .roll-up {
+      > span {
+        > span {
+          &:nth-child(1) {
+            transform: translateY(-100%);
+          }
+          &:nth-child(2) {
+            transform: translateY(0);
+          }
+        }
+      }
+    }
+    .text-reveal {
+      > span:nth-child(2) > span,
+      > span:nth-child(2) > span > span {
+        transform: translateX(0);
+      }
+    }
+  }
+}

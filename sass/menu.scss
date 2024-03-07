@@ -1,0 +1,93 @@
+.social{
+    position: fixed;
+    bottom: 4rem;
+    left: 4rem;
+    z-index: 999;
+    @media only screen and (max-width:$bp-large) {bottom: 2rem; left: 2rem;}
+    &-checkbox{display: none;}
+        &-btn{
+            height: 7rem;
+            width: 7rem;
+            position: fixed;
+            bottom: 4rem;
+            left: 4rem;
+            border-radius: 50%;
+            z-index: 1000;
+            cursor: pointer;
+            @media only screen and (max-width:$bp-large) {bottom: 2rem; left: 2rem;}
+        }
+    &-link{
+        &-linkedin{
+            position: fixed;
+            bottom: 4rem;
+            left: 6.5rem;
+            z-index: 999;
+            transition: all .7s ease-out; 
+            @media only screen and (max-width:$bp-large) {left: 4rem; bottom: 2rem;}
+        }
+        &-github{
+            position: fixed;
+            bottom: 4rem;
+            left: 6.5rem;
+            z-index: 999;
+            transition: all .7s .1s ease-out;
+            @media only screen and (max-width:$bp-large) {left: 4rem; bottom: 2rem;}
+        }
+    }
+    &-img{
+        background-color: black;
+        cursor: pointer;
+    }
+    &-search{
+        position: fixed;
+        bottom: 4rem;
+        left: 5rem;
+        z-index: 999;
+        height: 5rem;
+        width: 5rem;
+        transition: all .9s ease-in;
+        animation: pulse 1.5s infinite ease-in-out;
+        border-radius: 10px 20px 0 0;
+        @media only screen and (max-width:$bp-large) {bottom: 2rem; left: 2.5rem;}
+    }
+    &-linkedin{
+        transition: all .7s ease-out; 
+        height: 1rem;
+        width: 1rem;
+        border-radius: 50%;
+    }
+    &-github{
+        transition: all .7s .1s ease-out;
+        height: 1rem;
+        width: 1rem;
+        border-radius: 50%;
+     }
+    &-checkbox:checked ~ &-link-linkedin{
+        transform: translateY(-10rem) rotate(720deg) scale(5);
+        filter: brightness(1.5); 
+    }
+    &-checkbox:checked ~ &-search{
+        animation:unset; 
+        filter: brightness(2);
+        transform:rotate(1440deg);
+    }
+    &-checkbox:checked ~ &-link-github{
+        transform: translateY(-17rem) rotate(1080deg) scale(5);
+        filter: brightness(1.5);  
+    }
+}
+
+@keyframes pulse{
+    0%{
+        transform: scale(1);
+        filter: brightness(1);
+    }
+    50%{
+        transform: scale(1.05);
+        filter: brightness(1.5);
+    }
+    100%{
+        transform: scale(1);
+        filter: brightness(1);
+    }
+}
